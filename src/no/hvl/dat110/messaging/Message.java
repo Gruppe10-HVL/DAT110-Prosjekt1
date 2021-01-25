@@ -19,12 +19,8 @@ public class Message {
 
 	public byte[] encapsulate() {
 		
-		byte[] encoded;
-		encoded = new byte[MessageConfig.SEGMENTSIZE];
+		byte[] encoded = new byte[MessageConfig.SEGMENTSIZE];
 		encoded[0] = (byte) payload.length;
-		// TODO
-		// encapulate/encode the payload of this message in the
-		// encoded byte array according to message format
 
 		for (int i = 0; i < payload.length; i++) {
 			encoded[i + 1] = payload[i];
@@ -37,9 +33,6 @@ public class Message {
 	public void decapsulate(byte[] received) {
 
 		payload = new byte[received[0]];
-		// TODO
-		// decapsulate the data contained in the received byte array and store it 
-		// in the payload of this message
 		
 		for (int i = 0; i < received[0]; i++) {
 			payload[i]= received[i + 1];

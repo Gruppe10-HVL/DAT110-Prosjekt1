@@ -20,15 +20,10 @@ public class MessagingClient {
 		Socket clientSocket = new Socket();
 		Connection connection = null;
 
-		// TODO
-		// create TCP socket for client and connection
-		// create connection object
-		
 		try {
 			clientSocket.connect(new InetSocketAddress(server, port));
 			connection = new Connection(clientSocket);
 		} catch (IOException e) {
-			
 			e.printStackTrace();
 		}
 		

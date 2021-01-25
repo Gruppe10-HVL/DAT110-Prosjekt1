@@ -9,10 +9,6 @@ public class DisplayDevice {
 		
 		System.out.println("Display server starting ...");
 		
-		// TODO
-		// implement the operation of the display RPC server
-		// see how this is done for the sensor RPC server in SensorDevice
-		
 		DisplayImpl display = new DisplayImpl();
 		
 		RPCServer displayserver = new RPCServer(Common.DISPLAYPORT);

@@ -32,16 +32,6 @@ public class RPCClient {
 		
 		byte[] rpcreply;
 		
-		/* TODO: 
-		
-		Make a remote call on the RPC server by sending the RPC request message
-		and receive an RPC reply message
-		
-		rpcrequest is the marshalled rpcrequest from the client-stub
-		rpctreply is the rpcreply to be unmarshalled by the client-stub
-		
-		*/
-
 		connection.send(new Message(rpcrequest));
 		rpcreply = connection.receive().getData();
 

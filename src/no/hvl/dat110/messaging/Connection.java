@@ -30,13 +30,9 @@ public class Connection {
 
 	public void send(Message message) {
 
-		// TODO
-		// encapsulate the data contained in the message and write to the output stream
-		// Hint: use the encapsulate method on the message
 		try {
 			outStream.write(message.encapsulate());
 		} catch (IOException e) {
-			System.out.println("Error occured: " + e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -47,10 +43,6 @@ public class Connection {
 		Message message = new Message();
 		byte[] recvbuf = new byte[MessageConfig.SEGMENTSIZE];
 
-		// TODO
-		// read a segment (128 bytes) from the input stream and decapsulate into message
-		// Hint: create a new Message object and use the decapsulate method
-		
 		try {
 			inStream.read(recvbuf);
 		} catch (IOException e) {
