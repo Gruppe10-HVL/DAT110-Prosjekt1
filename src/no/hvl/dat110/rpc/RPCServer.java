@@ -42,11 +42,12 @@ public class RPCServer {
 
 			rpcid = rpcrequest[0];
 
-			RPCImpl i = services.get(rpcid);
+			RPCImpl impl = services.get(rpcid);
 
-			byte[] rpcreply = i.invoke(rpcrequest);
-			
-			connection.send(new Message(rpcreply));
+			if (impl != null) {
+				Message msg = new Message(impl.invoke(rpcrequest));
+				connection.send(msg);
+			}
 			
 			if (rpcid == RPCCommon.RPIDSTOP) {
 				stop = true;

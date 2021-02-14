@@ -10,11 +10,13 @@ public class DisplayImpl implements RPCImpl {
 	}
 	
 	public byte[] invoke(byte[] request) {
-		
+
+		byte rpcid = request[0];
 		byte[] reply;
-		byte rpcid;
+
+		String msg = RPCUtils.unmarshallString(request);
+		write(msg);
 		
-		rpcid = request[0];
 		reply = RPCUtils.marshallVoid(rpcid);
 		
 		return reply;

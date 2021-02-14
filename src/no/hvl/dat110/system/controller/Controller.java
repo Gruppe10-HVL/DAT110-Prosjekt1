@@ -36,10 +36,13 @@ public class Controller  {
 		sensorclient.register(stopsensor);
 		
 		for (int i = 0; i < N; i++) {
-			int temp = sensor.read();
-			display.write(Integer.toString(temp));
+			display.write("" + sensor.read());
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} 
 		}
-		
 
 		stopdisplay.stop();
 		stopsensor.stop();
